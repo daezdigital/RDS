@@ -1,0 +1,5 @@
+
+> rds-agencia-audiovisual@1.0.0 build
+> tsc && vite build
+
+src/components/ui/circular-gallery.tsx(25,37): error TS2503: Cannot find namespace 'NodeJS'.
