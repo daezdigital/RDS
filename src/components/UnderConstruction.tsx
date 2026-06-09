@@ -1,7 +1,11 @@
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { MessageCircle, Eye, X, Check } from 'lucide-react'
 import logoBlanco from '../assets/images/logo-blanco.png'
 
 export default function UnderConstruction() {
+  const [showPackages, setShowPackages] = useState(false)
+
   const socialLinks = [
     {
       icon: (
@@ -164,7 +168,7 @@ export default function UnderConstruction() {
       </header>
 
       {/* ─── Main Content: Logo & Under Construction Announcement ─── */}
-      <main className="relative flex-1 flex flex-col items-center justify-center text-center px-4 z-20 max-w-4xl mx-auto my-12">
+      <main className="relative flex-1 flex flex-col items-center justify-center text-center px-4 z-20 max-w-4xl mx-auto mt-8 mb-4">
         {/* Animated Brand Logo Container */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8, y: -20 }}
@@ -176,7 +180,7 @@ export default function UnderConstruction() {
             delay: 0.2
           }}
           whileHover={{ scale: 1.05 }}
-          className="cursor-pointer mb-8 md:mb-12 relative group"
+          className="cursor-pointer mb-6 md:mb-10 relative group"
           data-cursor-text="RDS.VZLA"
         >
           {/* Logo glow effect on hover */}
@@ -195,13 +199,13 @@ export default function UnderConstruction() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="mb-4 md:mb-6 border border-rojo/30 bg-rojo/5 text-rojo font-posterman uppercase text-[9px] md:text-[11px] tracking-[0.4em] px-4 py-1.5"
+            className="mb-4 border border-rojo/30 bg-rojo/5 text-rojo font-posterman uppercase text-[9px] md:text-[11px] tracking-[0.4em] px-4 py-1.5"
           >
             Mantenimiento Activo // Post-Producción
           </motion.div>
 
           {/* Main Headline */}
-          <h1 className="font-posterman text-blanco uppercase leading-[0.9] tracking-tight mb-6 md:mb-8 overflow-hidden" style={{ fontSize: 'clamp(38px, 6vw, 84px)' }}>
+          <h1 className="font-posterman text-blanco uppercase leading-[0.9] tracking-tight mb-4 md:mb-6 overflow-hidden" style={{ fontSize: 'clamp(38px, 6vw, 84px)' }}>
             <motion.span
               initial={{ y: '100%' }}
               animate={{ y: 0 }}
@@ -217,7 +221,7 @@ export default function UnderConstruction() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="font-inter text-blanco/60 text-base md:text-xl max-w-xl leading-relaxed font-light mb-10 md:mb-12"
+            className="font-inter text-blanco/60 text-base md:text-lg max-w-xl leading-relaxed font-light mb-8 md:mb-10"
           >
             Estamos editando algo asombroso. Nuestra plataforma web está en plena postproducción para ofrecerte una experiencia audiovisual verdaderamente innovadora.
           </motion.p>
@@ -228,7 +232,7 @@ export default function UnderConstruction() {
           initial={{ width: 0, opacity: 0 }}
           animate={{ width: '100%', opacity: 1 }}
           transition={{ delay: 0.9, duration: 1.2 }}
-          className="w-full max-w-xs h-[2px] bg-blanco/10 relative rounded-full overflow-hidden mb-12"
+          className="w-full max-w-xs h-[2px] bg-blanco/10 relative rounded-full overflow-hidden mb-8"
         >
           <motion.div 
             className="absolute top-0 left-0 h-full bg-rojo"
@@ -241,10 +245,35 @@ export default function UnderConstruction() {
             <span>85%</span>
           </div>
         </motion.div>
+
+        {/* Action Buttons */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.4, duration: 0.8 }}
+          className="flex flex-col sm:flex-row items-center gap-4 mt-2 w-full justify-center"
+        >
+          <a 
+            href="https://wa.me/584122346643" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="flex items-center justify-center gap-3 bg-blanco text-negro px-8 py-4 text-xs font-bold font-inter uppercase tracking-widest hover:bg-blanco/90 transition-colors rounded-none w-full sm:w-auto"
+          >
+            <MessageCircle className="w-4 h-4" />
+            WhatsApp
+          </a>
+          <button 
+            onClick={() => setShowPackages(true)} 
+            className="flex items-center justify-center gap-3 bg-transparent border-2 border-blanco text-blanco px-8 py-4 text-xs font-bold font-inter uppercase tracking-widest hover:bg-blanco hover:text-negro transition-colors rounded-none w-full sm:w-auto"
+          >
+            <Eye className="w-4 h-4" />
+            Servicios
+          </button>
+        </motion.div>
       </main>
 
       {/* ─── Footer: Contact, Social Info & Audio Widget ─── */}
-      <footer className="relative w-full flex flex-col md:flex-row items-center justify-between gap-6 z-20 border-t border-blanco/5 pt-6">
+      <footer className="relative w-full flex flex-col md:flex-row items-center justify-between gap-6 z-20 border-t border-blanco/5 pt-6 mt-8 md:mt-0">
         
         {/* Audio Visualizer Widget (Cinematic Vibe) */}
         <div className="flex items-center gap-3 bg-blanco/[0.03] border border-blanco/5 rounded-lg px-4 py-2 text-[9px] font-mono text-blanco/40 tracking-wider">
@@ -280,6 +309,174 @@ export default function UnderConstruction() {
           ))}
         </div>
       </footer>
+
+      {/* ─── Packages Modal (Branded Styling) ─── */}
+      <AnimatePresence>
+        {showPackages && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            className="fixed inset-0 z-50 bg-negro text-blanco flex flex-col p-6 md:p-12 overflow-y-auto min-h-screen font-inter"
+          >
+            {/* Modal Background Texture */}
+            <div className="fixed inset-0 bg-noise opacity-5 pointer-events-none" />
+            
+            <div className="max-w-6xl mx-auto w-full relative z-10">
+              {/* Header */}
+              <div className="flex justify-between items-center mb-12">
+                <div className="flex items-center gap-4">
+                  <img src={logoBlanco} alt="RDS Logo" className="h-8 md:h-12 object-contain" />
+                  <div className="h-8 md:h-12 w-[1px] bg-blanco/20"></div>
+                  <h2 className="font-posterman text-3xl md:text-5xl uppercase tracking-widest leading-none pt-2">Nuestros <span className="text-rojo">Servicios</span></h2>
+                </div>
+                <button 
+                  onClick={() => setShowPackages(false)} 
+                  className="p-3 border border-blanco/30 text-blanco/60 hover:border-rojo hover:text-rojo hover:bg-rojo/10 transition-colors rounded-none"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+
+              {/* Plans Grid */}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+                {/* Plan 1 */}
+                <div className="border border-blanco/20 p-8 flex flex-col bg-negro hover:border-blanco/50 transition-colors group">
+                  <h3 className="font-posterman text-xl uppercase tracking-[0.2em] mb-2 text-blanco group-hover:text-rojo transition-colors">Plan Test</h3>
+                  <div className="flex items-end gap-2 mb-8 border-b border-blanco/10 pb-6">
+                    <span className="text-4xl md:text-5xl font-bold leading-none text-blanco">150€</span>
+                    <span className="text-xs font-normal text-blanco/50 uppercase tracking-widest mb-1">Tasa Euro</span>
+                  </div>
+                  <ul className="space-y-4 flex-1 mb-8">
+                    <li className="flex items-center gap-3 text-sm tracking-wider uppercase text-blanco/80"><Check className="w-4 h-4 text-rojo" /> 2 Horas de Pauta</li>
+                    <li className="flex items-center gap-3 text-sm tracking-wider uppercase text-blanco/80"><Check className="w-4 h-4 text-rojo" /> 3 Reels (de 30 a 50 seg)</li>
+                    <li className="flex items-center gap-3 text-sm tracking-wider uppercase text-blanco/80"><Check className="w-4 h-4 text-rojo" /> 5 Fotos</li>
+                    <li className="flex items-center gap-3 text-sm tracking-wider uppercase text-blanco/80"><Check className="w-4 h-4 text-rojo" /> 4 Historias</li>
+                    <li className="flex items-center gap-3 text-sm tracking-wider uppercase text-blanco/80"><Check className="w-4 h-4 text-rojo" /> Análisis de Estrategia</li>
+                  </ul>
+                  <a href="https://wa.me/584122346643?text=Hola,%20me%20interesa%20el%20Plan%20Test" target="_blank" rel="noopener noreferrer" className="w-full py-4 border border-blanco/30 text-center font-bold uppercase tracking-widest text-xs hover:bg-blanco hover:text-negro transition-colors">
+                    Solicitar Plan
+                  </a>
+                </div>
+                
+                {/* Plan 2 (Recomendado - Brand Red) */}
+                <div className="border-2 border-rojo p-8 flex flex-col bg-rojo text-blanco relative transform md:-translate-y-4 shadow-2xl shadow-rojo/20">
+                  <div className="absolute top-0 right-0 bg-negro text-rojo text-[10px] uppercase tracking-widest px-3 py-1 font-bold border-l-2 border-b-2 border-rojo font-posterman">
+                    Recomendado
+                  </div>
+                  <h3 className="font-posterman text-xl uppercase tracking-[0.2em] mb-2 text-blanco pr-24">Nosotros nos encargamos</h3>
+                  <div className="flex items-end gap-2 mb-8 border-b border-blanco/20 pb-6">
+                    <span className="text-4xl md:text-5xl font-bold leading-none text-blanco">210€</span>
+                    <span className="text-xs font-normal text-blanco/80 uppercase tracking-widest mb-1">Tasa Euro</span>
+                  </div>
+                  <ul className="space-y-4 flex-1 mb-8">
+                    <li className="flex items-center gap-3 text-sm tracking-wider uppercase text-blanco"><Check className="w-4 h-4 text-negro" /> 2 Horas de Pauta</li>
+                    <li className="flex items-center gap-3 text-sm tracking-wider uppercase text-blanco"><Check className="w-4 h-4 text-negro" /> 6 Reels (de 30 a 50 seg)</li>
+                    <li className="flex items-center gap-3 text-sm tracking-wider uppercase text-blanco"><Check className="w-4 h-4 text-negro" /> 15 Fotos</li>
+                    <li className="flex items-center gap-3 text-sm tracking-wider uppercase text-blanco"><Check className="w-4 h-4 text-negro" /> 8 Historias</li>
+                    <li className="flex items-center gap-3 text-sm tracking-wider uppercase text-blanco"><Check className="w-4 h-4 text-negro" /> Análisis de Estrategia</li>
+                  </ul>
+                  <a href="https://wa.me/584122346643?text=Hola,%20me%20interesa%20el%20plan%20Nosotros%20nos%20encargamos" target="_blank" rel="noopener noreferrer" className="w-full py-4 bg-negro text-blanco text-center font-bold uppercase tracking-widest text-xs hover:bg-negro/80 transition-colors border-2 border-negro">
+                    Solicitar Plan
+                  </a>
+                </div>
+
+                {/* Plan 3 */}
+                <div className="border border-blanco/20 p-8 flex flex-col bg-negro hover:border-blanco/50 transition-colors group">
+                  <h3 className="font-posterman text-xl uppercase tracking-[0.2em] mb-2 text-blanco group-hover:text-rojo transition-colors">Alcance y Conocimiento</h3>
+                  <div className="flex items-end gap-2 mb-8 border-b border-blanco/10 pb-6">
+                    <span className="text-4xl md:text-5xl font-bold leading-none text-blanco">250€</span>
+                    <span className="text-xs font-normal text-blanco/50 uppercase tracking-widest mb-1">Tasa Euro</span>
+                  </div>
+                  <ul className="space-y-4 flex-1 mb-8">
+                    <li className="flex items-center gap-3 text-sm tracking-wider uppercase text-blanco/80"><Check className="w-4 h-4 text-rojo" /> 4 Horas de Pauta</li>
+                    <li className="flex items-center gap-3 text-sm tracking-wider uppercase text-blanco/80"><Check className="w-4 h-4 text-rojo" /> 12 Reels (de 30 a 50 seg)</li>
+                    <li className="flex items-center gap-3 text-sm tracking-wider uppercase text-blanco/80"><Check className="w-4 h-4 text-rojo" /> Guión</li>
+                    <li className="flex items-center gap-3 text-sm tracking-wider uppercase text-blanco/80"><Check className="w-4 h-4 text-rojo" /> Edición y Grabación</li>
+                    <li className="flex items-center gap-3 text-sm tracking-wider uppercase text-blanco/80"><Check className="w-4 h-4 text-rojo" /> Análisis de Estrategia</li>
+                  </ul>
+                  <a href="https://wa.me/584122346643?text=Hola,%20me%20interesa%20el%20plan%20Alcance%20y%20Conocimiento" target="_blank" rel="noopener noreferrer" className="w-full py-4 border border-blanco/30 text-center font-bold uppercase tracking-widest text-xs hover:bg-blanco hover:text-negro transition-colors">
+                    Solicitar Plan
+                  </a>
+                </div>
+              </div>
+
+              {/* Additional Services */}
+              <div className="border-t border-blanco/10 pt-16 mb-16">
+                <h2 className="font-posterman text-2xl md:text-4xl uppercase tracking-widest mb-12 text-center text-blanco">Servicios <span className="text-rojo">Adicionales</span></h2>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {/* Videos */}
+                  <div className="border border-blanco/10 p-6 bg-blanco/[0.01] hover:bg-blanco/[0.03] transition-colors">
+                    <div className="mb-6">
+                      <h4 className="font-posterman text-lg uppercase tracking-widest mb-1 text-blanco">Videos</h4>
+                      <p className="text-xs text-rojo uppercase tracking-widest font-bold">C. Unidad: 40€ Tasa Euro</p>
+                    </div>
+                    <ul className="space-y-3 font-mono text-sm">
+                      <li className="flex justify-between items-center border-b border-blanco/5 pb-3">
+                        <span className="text-blanco/60">2 Reels (de 30 a 50 seg)</span>
+                        <span className="font-bold text-blanco">70€</span>
+                      </li>
+                      <li className="flex justify-between items-center border-b border-blanco/5 pb-3">
+                        <span className="text-blanco/60">3 Reels (de 30 a 50 seg)</span>
+                        <span className="font-bold text-blanco">100€</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Fotos */}
+                  <div className="border border-blanco/10 p-6 bg-blanco/[0.01] hover:bg-blanco/[0.03] transition-colors">
+                    <div className="mb-6">
+                      <h4 className="font-posterman text-lg uppercase tracking-widest mb-1 text-blanco">Fotos</h4>
+                      <p className="text-xs text-rojo uppercase tracking-widest font-bold">C. Unidad: 7.5€ Tasa Euro</p>
+                    </div>
+                    <ul className="space-y-3 font-mono text-sm">
+                      <li className="flex justify-between items-center border-b border-blanco/5 pb-3">
+                        <span className="text-blanco/60">5 Fotos</span>
+                        <span className="font-bold text-blanco">25€</span>
+                      </li>
+                      <li className="flex justify-between items-center border-b border-blanco/5 pb-3">
+                        <span className="text-blanco/60">15 Fotos</span>
+                        <span className="font-bold text-blanco">50€</span>
+                      </li>
+                      <li className="flex justify-between items-center border-b border-blanco/5 pb-3">
+                        <span className="text-blanco/60">30 Fotos</span>
+                        <span className="font-bold text-blanco">80€</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Historias */}
+                  <div className="border border-blanco/10 p-6 bg-blanco/[0.01] hover:bg-blanco/[0.03] transition-colors">
+                    <div className="mb-6">
+                      <h4 className="font-posterman text-lg uppercase tracking-widest mb-1 text-blanco">Historias</h4>
+                      <p className="text-xs text-rojo uppercase tracking-widest font-bold">C. Unidad: 15€ Tasa Euro</p>
+                    </div>
+                    <ul className="space-y-3 font-mono text-sm">
+                      <li className="flex justify-between items-center border-b border-blanco/5 pb-3">
+                        <span className="text-blanco/60">2 Historias</span>
+                        <span className="font-bold text-blanco">25€</span>
+                      </li>
+                      <li className="flex justify-between items-center border-b border-blanco/5 pb-3">
+                        <span className="text-blanco/60">4 Historias</span>
+                        <span className="font-bold text-blanco">35€</span>
+                      </li>
+                      <li className="flex justify-between items-center border-b border-blanco/5 pb-3">
+                        <span className="text-blanco/60">8 Historias</span>
+                        <span className="font-bold text-blanco">70€</span>
+                      </li>
+                      <li className="flex justify-between items-center border-b border-blanco/5 pb-3">
+                        <span className="text-blanco/60">20 Historias</span>
+                        <span className="font-bold text-blanco">180€</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
