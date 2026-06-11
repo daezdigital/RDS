@@ -348,8 +348,11 @@ export function CinematicFooter() {
           <div className="relative z-20 w-full pb-8 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
             
             {/* Copyright */}
-            <div className="text-white/90 text-[11px] md:text-sm font-inter tracking-[0.2em] uppercase order-2 md:order-1">
-              (C) 2026 RDS. ALL RIGHTS RESERVED.
+            <div className="text-white/90 text-[11px] md:text-sm font-inter tracking-[0.2em] uppercase order-2 md:order-1 flex flex-col gap-1 items-center md:items-start">
+              <span>(C) {new Date().getFullYear()} RDS Agencia Audiovisual. ALL RIGHTS RESERVED.</span>
+              <span className="text-[10px] text-white/40 tracking-normal normal-case">
+                Web por <a href="https://www.daezdigital.com/" target="_blank" rel="noopener noreferrer" className="hover:text-rojo transition-colors underline decoration-rojo/30 underline-offset-2">Daez</a>
+              </span>
             </div>
 
             {/* "Made with Love" Badge */}

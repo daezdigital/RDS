@@ -275,20 +275,26 @@ export default function UnderConstruction() {
       {/* ─── Footer: Contact, Social Info & Audio Widget ─── */}
       <footer className="relative w-full flex flex-col md:flex-row items-center justify-between gap-6 z-20 border-t border-blanco/5 pt-6 mt-8 md:mt-0">
         
-        {/* Audio Visualizer Widget (Cinematic Vibe) */}
-        <div className="flex items-center gap-3 bg-blanco/[0.03] border border-blanco/5 rounded-lg px-4 py-2 text-[9px] font-mono text-blanco/40 tracking-wider">
-          <div className="flex items-end gap-[2px] h-3 w-6">
-            <motion.div className="w-[2px] bg-rojo" animate={{ height: [4, 12, 6, 10, 4] }} transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }} />
-            <motion.div className="w-[2px] bg-rojo" animate={{ height: [8, 4, 12, 6, 8] }} transition={{ duration: 0.9, repeat: Infinity, ease: 'easeInOut' }} />
-            <motion.div className="w-[2px] bg-blanco" animate={{ height: [6, 10, 4, 12, 6] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }} />
-            <motion.div className="w-[2px] bg-blanco" animate={{ height: [10, 6, 8, 4, 10] }} transition={{ duration: 1.1, repeat: Infinity, ease: 'easeInOut' }} />
+        {/* Left: Audio Visualizer Widget + Daez Credit */}
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 bg-blanco/[0.03] border border-blanco/5 rounded-lg px-4 py-2 text-[9px] font-mono text-blanco/40 tracking-wider">
+            <div className="flex items-end gap-[2px] h-3 w-6">
+              <motion.div className="w-[2px] bg-rojo" animate={{ height: [4, 12, 6, 10, 4] }} transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }} />
+              <motion.div className="w-[2px] bg-rojo" animate={{ height: [8, 4, 12, 6, 8] }} transition={{ duration: 0.9, repeat: Infinity, ease: 'easeInOut' }} />
+              <motion.div className="w-[2px] bg-blanco" animate={{ height: [6, 10, 4, 12, 6] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }} />
+              <motion.div className="w-[2px] bg-blanco" animate={{ height: [10, 6, 8, 4, 10] }} transition={{ duration: 1.1, repeat: Infinity, ease: 'easeInOut' }} />
+            </div>
+            <span>AUDIO SYNC // ACTIVO</span>
           </div>
-          <span>AUDIO SYNC // ACTIVO</span>
+
+          <span className="text-[10px] md:text-xs font-mono text-blanco/30 tracking-wider">
+            Web por <a href="https://www.daezdigital.com/" target="_blank" rel="noopener noreferrer" className="hover:text-rojo transition-colors underline decoration-rojo/30 underline-offset-2">Daez</a>
+          </span>
         </div>
 
-        {/* Copyright */}
-        <div className="text-[10px] md:text-xs font-mono text-blanco/30 tracking-wider text-center md:text-left">
-          © {new Date().getFullYear()} RDS AGENCY. TODOS LOS DERECHOS RESERVADOS.
+        {/* Center: Copyright */}
+        <div className="text-[10px] md:text-xs font-mono text-blanco/30 tracking-wider text-center">
+          © {new Date().getFullYear()} RDS Agencia Audiovisual. TODOS LOS DERECHOS RESERVADOS.
         </div>
 
         {/* Social Networks Links */}
