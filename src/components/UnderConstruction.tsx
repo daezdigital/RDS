@@ -180,6 +180,7 @@ export default function UnderConstruction() {
             delay: 0.2
           }}
           whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
           className="cursor-pointer mb-6 md:mb-10 relative group"
           data-cursor-text="RDS.VZLA"
         >
@@ -221,10 +222,20 @@ export default function UnderConstruction() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="font-inter text-blanco/60 text-base md:text-lg max-w-xl leading-relaxed font-light mb-8 md:mb-10"
+            className="font-inter text-blanco/60 text-base md:text-lg max-w-xl leading-relaxed font-light mb-6"
           >
             Estamos editando algo asombroso. Nuestra plataforma web está en plena postproducción para ofrecerte una experiencia audiovisual verdaderamente innovadora.
           </motion.p>
+
+          {/* Slogan */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.85, duration: 0.8 }}
+            className="font-posterman text-blanco/95 text-base md:text-xl uppercase tracking-[0.2em] leading-normal mb-8 md:mb-10 select-none"
+          >
+            Si no estás en <span className="bg-rojo text-negro px-2 py-0.5 font-bold">RDS</span> no estás en nada
+          </motion.div>
         </div>
 
         {/* Interactive Progress Bar */}
@@ -257,14 +268,14 @@ export default function UnderConstruction() {
             href="https://wa.me/584122346643" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="flex items-center justify-center gap-3 bg-blanco text-negro px-8 py-4 text-xs font-bold font-inter uppercase tracking-widest hover:bg-blanco/90 transition-colors rounded-none w-full sm:w-auto"
+            className="flex items-center justify-center gap-3 bg-blanco text-negro px-8 py-4 text-xs font-bold font-inter uppercase tracking-widest hover:bg-blanco/90 active:scale-[0.97] transition-all duration-200 rounded-none w-full sm:w-auto cursor-pointer"
           >
             <MessageCircle className="w-4 h-4" />
             WhatsApp
           </a>
           <button 
             onClick={() => setShowPackages(true)} 
-            className="flex items-center justify-center gap-3 bg-transparent border-2 border-blanco text-blanco px-8 py-4 text-xs font-bold font-inter uppercase tracking-widest hover:bg-blanco hover:text-negro transition-colors rounded-none w-full sm:w-auto"
+            className="flex items-center justify-center gap-3 bg-transparent border-2 border-blanco text-blanco px-8 py-4 text-xs font-bold font-inter uppercase tracking-widest hover:bg-blanco hover:text-negro active:scale-[0.97] transition-all duration-200 rounded-none w-full sm:w-auto cursor-pointer"
           >
             <Eye className="w-4 h-4" />
             Servicios
@@ -308,6 +319,7 @@ export default function UnderConstruction() {
               className="flex items-center gap-2 text-blanco/50 hover:text-rojo transition-colors duration-300 font-posterman uppercase text-[9px] md:text-[11px] tracking-wider cursor-pointer"
               data-cursor-text={link.text}
               whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.9 }}
             >
               {link.icon}
               <span className="hidden sm:inline">{link.label}</span>
@@ -338,7 +350,7 @@ export default function UnderConstruction() {
                 </div>
                 <button 
                   onClick={() => setShowPackages(false)} 
-                  className="p-3 border border-blanco/30 text-blanco/60 hover:border-rojo hover:text-rojo hover:bg-rojo/10 transition-colors rounded-none"
+                  className="p-3 border border-blanco/30 text-blanco/60 hover:border-rojo hover:text-rojo hover:bg-rojo/10 active:scale-[0.93] transition-all duration-200 rounded-none cursor-pointer"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -347,7 +359,7 @@ export default function UnderConstruction() {
               {/* Plans Grid */}
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
                 {/* Plan 1 */}
-                <div className="border border-blanco/20 p-8 flex flex-col bg-negro hover:border-blanco/50 transition-colors group">
+                <div className="border border-blanco/20 p-8 flex flex-col bg-negro hover:border-blanco/50 hover:-translate-y-1 transition-all duration-300 group">
                   <h3 className="font-posterman text-xl uppercase tracking-[0.2em] mb-2 text-blanco group-hover:text-rojo transition-colors">Plan Test</h3>
                   <div className="flex items-end gap-2 mb-8 border-b border-blanco/10 pb-6">
                     <span className="text-4xl md:text-5xl font-bold leading-none text-blanco">150€</span>
@@ -360,13 +372,13 @@ export default function UnderConstruction() {
                     <li className="flex items-center gap-3 text-sm tracking-wider uppercase text-blanco/80"><Check className="w-4 h-4 text-rojo" /> 4 Historias</li>
                     <li className="flex items-center gap-3 text-sm tracking-wider uppercase text-blanco/80"><Check className="w-4 h-4 text-rojo" /> Análisis de Estrategia</li>
                   </ul>
-                  <a href="https://wa.me/584122346643?text=Hola,%20me%20interesa%20el%20Plan%20Test" target="_blank" rel="noopener noreferrer" className="w-full py-4 border border-blanco/30 text-center font-bold uppercase tracking-widest text-xs hover:bg-blanco hover:text-negro transition-colors">
+                  <a href="https://wa.me/584122346643?text=Hola,%20me%20interesa%20el%20Plan%20Test" target="_blank" rel="noopener noreferrer" className="w-full py-4 border border-blanco/30 text-center font-bold uppercase tracking-widest text-xs hover:bg-blanco hover:text-negro active:scale-[0.97] transition-all duration-200 cursor-pointer">
                     Solicitar Plan
                   </a>
                 </div>
                 
                 {/* Plan 2 (Recomendado - Brand Red) */}
-                <div className="border-2 border-rojo p-8 flex flex-col bg-rojo text-blanco relative transform md:-translate-y-4 shadow-2xl shadow-rojo/20">
+                <div className="border-2 border-rojo p-8 flex flex-col bg-rojo text-blanco relative transform md:-translate-y-4 hover:md:-translate-y-5 hover:-translate-y-1 transition-all duration-300 shadow-2xl shadow-rojo/20">
                   <div className="absolute top-0 right-0 bg-negro text-rojo text-[10px] uppercase tracking-widest px-3 py-1 font-bold border-l-2 border-b-2 border-rojo font-posterman">
                     Recomendado
                   </div>
@@ -382,13 +394,13 @@ export default function UnderConstruction() {
                     <li className="flex items-center gap-3 text-sm tracking-wider uppercase text-blanco"><Check className="w-4 h-4 text-negro" /> 8 Historias</li>
                     <li className="flex items-center gap-3 text-sm tracking-wider uppercase text-blanco"><Check className="w-4 h-4 text-negro" /> Análisis de Estrategia</li>
                   </ul>
-                  <a href="https://wa.me/584122346643?text=Hola,%20me%20interesa%20el%20plan%20Nosotros%20nos%20encargamos" target="_blank" rel="noopener noreferrer" className="w-full py-4 bg-negro text-blanco text-center font-bold uppercase tracking-widest text-xs hover:bg-negro/80 transition-colors border-2 border-negro">
+                  <a href="https://wa.me/584122346643?text=Hola,%20me%20interesa%20el%20plan%20Nosotros%20nos%20encargamos" target="_blank" rel="noopener noreferrer" className="w-full py-4 bg-negro text-blanco text-center font-bold uppercase tracking-widest text-xs hover:bg-negro/80 active:scale-[0.97] transition-all duration-200 border-2 border-negro cursor-pointer">
                     Solicitar Plan
                   </a>
                 </div>
 
                 {/* Plan 3 */}
-                <div className="border border-blanco/20 p-8 flex flex-col bg-negro hover:border-blanco/50 transition-colors group">
+                <div className="border border-blanco/20 p-8 flex flex-col bg-negro hover:border-blanco/50 hover:-translate-y-1 transition-all duration-300 group">
                   <h3 className="font-posterman text-xl uppercase tracking-[0.2em] mb-2 text-blanco group-hover:text-rojo transition-colors">Alcance y Conocimiento</h3>
                   <div className="flex items-end gap-2 mb-8 border-b border-blanco/10 pb-6">
                     <span className="text-4xl md:text-5xl font-bold leading-none text-blanco">250€</span>
@@ -401,7 +413,7 @@ export default function UnderConstruction() {
                     <li className="flex items-center gap-3 text-sm tracking-wider uppercase text-blanco/80"><Check className="w-4 h-4 text-rojo" /> Edición y Grabación</li>
                     <li className="flex items-center gap-3 text-sm tracking-wider uppercase text-blanco/80"><Check className="w-4 h-4 text-rojo" /> Análisis de Estrategia</li>
                   </ul>
-                  <a href="https://wa.me/584122346643?text=Hola,%20me%20interesa%20el%20plan%20Alcance%20y%20Conocimiento" target="_blank" rel="noopener noreferrer" className="w-full py-4 border border-blanco/30 text-center font-bold uppercase tracking-widest text-xs hover:bg-blanco hover:text-negro transition-colors">
+                  <a href="https://wa.me/584122346643?text=Hola,%20me%20interesa%20el%20plan%20Alcance%20y%20Conocimiento" target="_blank" rel="noopener noreferrer" className="w-full py-4 border border-blanco/30 text-center font-bold uppercase tracking-widest text-xs hover:bg-blanco hover:text-negro active:scale-[0.97] transition-all duration-200 cursor-pointer">
                     Solicitar Plan
                   </a>
                 </div>
@@ -413,7 +425,7 @@ export default function UnderConstruction() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {/* Videos */}
-                  <div className="border border-blanco/10 p-6 bg-blanco/[0.01] hover:bg-blanco/[0.03] transition-colors">
+                  <div className="border border-blanco/10 p-6 bg-blanco/[0.01] hover:bg-blanco/[0.03] hover:-translate-y-0.5 transition-all duration-300">
                     <div className="mb-6">
                       <h4 className="font-posterman text-lg uppercase tracking-widest mb-1 text-blanco">Videos</h4>
                       <p className="text-xs text-rojo uppercase tracking-widest font-bold">C. Unidad: 40€ Tasa Euro</p>
@@ -431,7 +443,7 @@ export default function UnderConstruction() {
                   </div>
 
                   {/* Fotos */}
-                  <div className="border border-blanco/10 p-6 bg-blanco/[0.01] hover:bg-blanco/[0.03] transition-colors">
+                  <div className="border border-blanco/10 p-6 bg-blanco/[0.01] hover:bg-blanco/[0.03] hover:-translate-y-0.5 transition-all duration-300">
                     <div className="mb-6">
                       <h4 className="font-posterman text-lg uppercase tracking-widest mb-1 text-blanco">Fotos</h4>
                       <p className="text-xs text-rojo uppercase tracking-widest font-bold">C. Unidad: 7.5€ Tasa Euro</p>
@@ -453,7 +465,7 @@ export default function UnderConstruction() {
                   </div>
 
                   {/* Historias */}
-                  <div className="border border-blanco/10 p-6 bg-blanco/[0.01] hover:bg-blanco/[0.03] transition-colors">
+                  <div className="border border-blanco/10 p-6 bg-blanco/[0.01] hover:bg-blanco/[0.03] hover:-translate-y-0.5 transition-all duration-300">
                     <div className="mb-6">
                       <h4 className="font-posterman text-lg uppercase tracking-widest mb-1 text-blanco">Historias</h4>
                       <p className="text-xs text-rojo uppercase tracking-widest font-bold">C. Unidad: 15€ Tasa Euro</p>
