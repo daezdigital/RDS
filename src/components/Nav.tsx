@@ -149,6 +149,15 @@ export default function Nav() {
                   <RollingText text={link.label} />
                 </motion.a>
               ))}
+
+              <a
+                href="https://app.rdsvzla.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-posterman uppercase tracking-[0.2em] px-3 py-1 bg-rojo text-blanco text-[10px] hover:bg-rojo/90 transition-colors shadow-sm"
+              >
+                Inicio de Sesión ↗
+              </a>
             </div>
 
             {/* Mobile Toggle & Status Dot */}
@@ -197,6 +206,18 @@ export default function Nav() {
                       {link.label}
                     </motion.a>
                   ))}
+                  
+                  <motion.a
+                    href="https://app.rdsvzla.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-posterman uppercase text-blanco bg-rojo text-lg px-6 py-3 mt-2 tracking-widest text-center w-full shadow-lg"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: links.length * 0.1, ease: EASE }}
+                  >
+                    Inicio de Sesión ↗
+                  </motion.a>
                 </div>
 
                 <div className="mt-4 border-t border-blanco/10 pt-6 text-center">

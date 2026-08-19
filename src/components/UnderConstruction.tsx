@@ -1,41 +1,47 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MessageCircle, Eye, X, Check } from 'lucide-react'
+import { Eye, X, Check } from 'lucide-react'
 import logoBlanco from '../assets/images/logo-blanco.png'
+import {
+  InstagramIcon,
+  WhatsAppIcon,
+  EmailIcon,
+  TikTokIcon,
+  FacebookIcon,
+  YouTubeIcon,
+  LogInIcon,
+} from './icons/SocialIcons'
 
 export default function UnderConstruction() {
   const [showPackages, setShowPackages] = useState(false)
 
   const socialLinks = [
     {
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-        </svg>
-      ),
+      icon: <InstagramIcon size={18} />,
       label: 'Instagram',
       href: 'https://www.instagram.com/rds.vzla',
       text: '@rds.vzla'
     },
     {
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-        </svg>
-      ),
+      icon: <WhatsAppIcon size={18} />,
       label: 'WhatsApp',
       href: 'https://wa.me/584122346643',
       text: '+58 412-2346643'
     },
     {
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect width="20" height="16" x="2" y="4" rx="2"/>
-          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-        </svg>
-      ),
+      icon: <TikTokIcon size={18} />,
+      label: 'TikTok',
+      href: 'https://www.tiktok.com/@rds.vzla',
+      text: '@rds.vzla'
+    },
+    {
+      icon: <FacebookIcon size={18} />,
+      label: 'Facebook',
+      href: 'https://www.facebook.com/profile.php?id=61576604302898',
+      text: 'RDS Agencia'
+    },
+    {
+      icon: <EmailIcon size={18} />,
       label: 'Email',
       href: 'mailto:info@rdsvzla.com',
       text: 'info@rdsvzla.com'
@@ -85,9 +91,9 @@ export default function UnderConstruction() {
           </video>
         </motion.div>
 
-        {/* Cinematic Light Leak 1: Red */}
+        {/* Cinematic Light Leak 1: Red (Optimizado GPU) */}
         <motion.div
-          className="absolute w-[400px] md:w-[700px] h-[400px] md:h-[700px] rounded-full bg-rojo/25 blur-[100px] md:blur-[160px]"
+          className="absolute w-[400px] md:w-[700px] h-[400px] md:h-[700px] rounded-full bg-[radial-gradient(circle,rgba(242,27,66,0.25)_0%,transparent_70%)] will-change-transform"
           animate={{
             x: [-80, 150, -50, -80],
             y: [-50, 200, 50, -50],
@@ -99,7 +105,7 @@ export default function UnderConstruction() {
         
         {/* Cinematic Light Leak 2: Orange (Warm Flare) */}
         <motion.div
-          className="absolute w-[300px] md:w-[600px] h-[300px] md:h-[600px] rounded-full bg-orange-600/15 blur-[90px] md:blur-[150px]"
+          className="absolute w-[300px] md:w-[600px] h-[300px] md:h-[600px] rounded-full bg-[radial-gradient(circle,rgba(234,88,12,0.18)_0%,transparent_70%)] will-change-transform"
           animate={{
             x: [100, -150, 50, 100],
             y: [150, -100, 200, 150],
@@ -111,7 +117,7 @@ export default function UnderConstruction() {
 
         {/* Cinematic Light Leak 3: Mint (Cool Contrast) */}
         <motion.div
-          className="absolute w-[350px] md:w-[650px] h-[350px] md:h-[650px] rounded-full bg-mint/15 blur-[90px] md:blur-[160px]"
+          className="absolute w-[350px] md:w-[650px] h-[350px] md:h-[650px] rounded-full bg-[radial-gradient(circle,rgba(0,242,204,0.12)_0%,transparent_70%)] will-change-transform"
           animate={{
             x: [50, -100, 120, 50],
             y: [-80, 150, -120, -80],
@@ -143,7 +149,7 @@ export default function UnderConstruction() {
       </div>
 
       {/* ─── Header: Brand Status & REC Indicator ─── */}
-      <header className="relative w-full flex items-center justify-between z-20">
+      <header className="relative w-full flex items-center justify-between z-20 gap-4">
         <div className="flex items-center gap-2">
           {/* Custom SVG Video Camera Icon */}
           <svg className="text-rojo animate-pulse" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -155,15 +161,28 @@ export default function UnderConstruction() {
           </span>
         </div>
         
-        {/* Pulsing REC Indicator */}
-        <div className="flex items-center gap-3 bg-negro/40 backdrop-blur-md border border-blanco/10 px-4 py-1.5 rounded-full">
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rojo opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rojo"></span>
-          </span>
-          <span className="font-mono text-[10px] md:text-xs tracking-wider text-rojo font-bold uppercase">
-            REC 4K
-          </span>
+        <div className="flex items-center gap-3">
+          {/* Pulsing REC Indicator */}
+          <div className="hidden sm:flex items-center gap-3 bg-negro/40 backdrop-blur-md border border-blanco/10 px-4 py-1.5 rounded-full">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rojo opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rojo"></span>
+            </span>
+            <span className="font-mono text-[10px] md:text-xs tracking-wider text-rojo font-bold uppercase">
+              REC 4K
+            </span>
+          </div>
+
+          {/* Botón Inicio de Sesión en Header */}
+          <a
+            href="https://app.rdsvzla.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-rojo text-blanco border border-rojo px-4 py-1.5 text-[10px] md:text-xs font-bold font-inter uppercase tracking-widest hover:bg-rojo/90 hover:shadow-lg hover:shadow-rojo/30 active:scale-[0.97] transition-all duration-200 cursor-pointer"
+          >
+            <LogInIcon size={14} />
+            <span>Inicio de Sesión</span>
+          </a>
         </div>
       </header>
 
@@ -265,12 +284,21 @@ export default function UnderConstruction() {
           className="flex flex-col sm:flex-row items-center gap-4 mt-2 w-full justify-center"
         >
           <a 
+            href="https://app.rdsvzla.com/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="flex items-center justify-center gap-3 bg-rojo text-blanco px-8 py-4 text-xs font-bold font-inter uppercase tracking-widest hover:bg-rojo/90 hover:shadow-xl hover:shadow-rojo/30 active:scale-[0.97] transition-all duration-200 rounded-none w-full sm:w-auto cursor-pointer border border-rojo"
+          >
+            <LogInIcon size={18} />
+            Inicio de Sesión
+          </a>
+          <a 
             href="https://wa.me/584122346643" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="flex items-center justify-center gap-3 bg-blanco text-negro px-8 py-4 text-xs font-bold font-inter uppercase tracking-widest hover:bg-blanco/90 active:scale-[0.97] transition-all duration-200 rounded-none w-full sm:w-auto cursor-pointer"
           >
-            <MessageCircle className="w-4 h-4" />
+            <WhatsAppIcon size={18} />
             WhatsApp
           </a>
           <button 

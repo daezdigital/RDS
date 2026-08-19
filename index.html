@@ -3,15 +3,74 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="RDS — Agencia productora audiovisual especializada en redes sociales. Producimos contenido que conecta, convierte y trasciende." />
-    <title>RDS — Agencia Audiovisual</title>
+    
+    <!-- SEO & Metadata -->
+    <title>RDS — Agencia Audiovisual | Si no estás en RDS no estás en nada</title>
+    <meta name="description" content="RDS es una agencia productora audiovisual especializada en redes sociales. Producimos Reels, TikToks, contenido cinematográfico 4K y estrategia de marca." />
+    <meta name="keywords" content="RDS, Agencia Audiovisual, Producción de Video, Reels, TikTok, Estrategia Digital, Contenido Audiovisual, Venezuela" />
+    <meta name="theme-color" content="#0D0D0D" />
+    
+    <!-- Canonical Tag -->
+    <link rel="canonical" href="https://rdsvzla.com/" />
+    
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rdsvzla.com/" />
+    <meta property="og:title" content="RDS — Agencia Audiovisual | Si no estás en RDS no estás en nada" />
+    <meta property="og:description" content="Agencia productora audiovisual especializada en redes sociales. Producimos contenido estratégico que conecta y trasciende." />
+    <meta property="og:image" content="https://rdsvzla.com/favicon.png" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="RDS — Agencia Audiovisual" />
+    <meta name="twitter:description" content="Producimos contenido audiovisual estratégico que conecta marcas con audiencias reales." />
+    <meta name="twitter:image" content="https://rdsvzla.com/favicon.png" />
+
+    <!-- Datos Estructurados JSON-LD (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "RDS Agencia Audiovisual",
+      "alternateName": "RDS.VZLA",
+      "url": "https://rdsvzla.com/",
+      "logo": "https://rdsvzla.com/favicon.png",
+      "description": "Agencia productora audiovisual especializada en redes sociales, Reels, TikToks y producción de contenido 4K.",
+      "sameAs": [
+        "https://www.instagram.com/rds.vzla",
+        "https://www.tiktok.com/@rds.vzla",
+        "https://www.facebook.com/profile.php?id=61576604302898",
+        "https://wa.me/584122346643"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+58-412-2346643",
+        "contactType": "customer service",
+        "email": "info@rdsvzla.com"
+      }
+    }
+    </script>
+
+    <!-- FuentesTipográficas -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,800;1,800&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet" />
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Fallback Estático para View Source & Rastreadores sin JS -->
+    <noscript>
+      <div style="padding: 2rem; background: #0D0D0D; color: #ECE9F4; font-family: sans-serif; text-align: center;">
+        <h1 style="color: #f21b42;">RDS — Agencia Audiovisual</h1>
+        <p>Si no estás en RDS no estás en nada.</p>
+        <p>Producimos contenido estratégico para redes sociales, Reels, TikToks y marca.</p>
+        <p>Contacto WhatsApp: <a href="https://wa.me/584122346643" style="color: #f21b42;">+58 412-2346643</a> | Inicio de Sesión: <a href="https://app.rdsvzla.com/" style="color: #f21b42;">app.rdsvzla.com</a></p>
+      </div>
+    </noscript>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

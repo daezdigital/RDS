@@ -1,5 +1,13 @@
 import { motion } from 'framer-motion'
 import logo from '../assets/images/logo.png'
+import {
+  InstagramIcon,
+  WhatsAppIcon,
+  TikTokIcon,
+  FacebookIcon,
+  TelegramIcon,
+  YouTubeIcon,
+} from './icons/SocialIcons'
 
 const EASE = [0.76, 0, 0.24, 1] as [number, number, number, number]
 
@@ -87,11 +95,42 @@ export default function Footer() {
           </div>
 
           <div className="flex gap-4 mb-8">
-            {['youtube', 'telegram', 'instagram', 'tiktok'].map(social => (
-              <div key={social} className="w-10 h-10 bg-negro flex items-center justify-center text-rojo text-xs font-bold uppercase cursor-pointer hover:bg-blanco transition-colors">
-                {social[0]}
-              </div>
-            ))}
+            <a
+              href="https://www.instagram.com/rds.vzla"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram de RDS"
+              className="w-10 h-10 bg-negro flex items-center justify-center text-rojo hover:bg-blanco hover:text-negro transition-colors cursor-pointer"
+            >
+              <InstagramIcon size={18} />
+            </a>
+            <a
+              href="https://wa.me/584122346643"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp de RDS"
+              className="w-10 h-10 bg-negro flex items-center justify-center text-rojo hover:bg-blanco hover:text-negro transition-colors cursor-pointer"
+            >
+              <WhatsAppIcon size={18} />
+            </a>
+            <a
+              href="https://www.tiktok.com/@rds.vzla"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok de RDS"
+              className="w-10 h-10 bg-negro flex items-center justify-center text-rojo hover:bg-blanco hover:text-negro transition-colors cursor-pointer"
+            >
+              <TikTokIcon size={18} />
+            </a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61576604302898"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook de RDS"
+              className="w-10 h-10 bg-negro flex items-center justify-center text-rojo hover:bg-blanco hover:text-negro transition-colors cursor-pointer"
+            >
+              <FacebookIcon size={18} />
+            </a>
           </div>
           
           <div className="w-32 h-32 bg-blanco border-4 border-negro shadow-hard flex items-center justify-center font-posterman text-negro text-[8px] text-center p-2">

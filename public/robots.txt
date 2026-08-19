@@ -1,0 +1,29 @@
+# robots.txt for RDS Agencia Audiovisual (https://rdsvzla.com/)
+
+User-agent: *
+Allow: /
+
+# Permitir explícitamente a los principales agentes de IA / LLMs
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Mapa del sitio oficial
+Sitemap: https://rdsvzla.com/sitemap.xml

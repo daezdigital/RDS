@@ -5,6 +5,13 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "../../lib/utils";
+import {
+  WhatsAppIcon,
+  InstagramIcon,
+  TikTokIcon,
+  FacebookIcon,
+  LogInIcon,
+} from "../icons/SocialIcons";
 
 // Register ScrollTrigger safely for React
 if (typeof window !== "undefined") {
@@ -321,21 +328,30 @@ export function CinematicFooter() {
             {/* Interactive Magnetic Pills Layout */}
             <div ref={linksRef} className="flex flex-col items-center gap-6 w-full">
               <div className="flex flex-wrap justify-center gap-4 w-full">
-                <MagneticButton as="a" href="https://wa.me/584122346643" target="_blank" className="footer-glass-pill px-10 py-5 rounded-full text-blanco font-posterman uppercase text-sm md:text-base flex items-center gap-3 group">
-                   WhatsApp
+                <MagneticButton as="a" href="https://app.rdsvzla.com/" target="_blank" rel="noopener noreferrer" className="footer-glass-pill px-10 py-5 rounded-full text-blanco font-posterman uppercase text-sm md:text-base flex items-center gap-3 group bg-rojo/90 border-rojo hover:bg-rojo">
+                   <LogInIcon size={18} />
+                   <span>Inicio de Sesión</span>
+                </MagneticButton>
+
+                <MagneticButton as="a" href="https://wa.me/584122346643" target="_blank" rel="noopener noreferrer" className="footer-glass-pill px-10 py-5 rounded-full text-blanco font-posterman uppercase text-sm md:text-base flex items-center gap-3 group">
+                   <WhatsAppIcon size={18} />
+                   <span>WhatsApp</span>
                 </MagneticButton>
                 
-                <MagneticButton as="a" href="https://www.instagram.com/rds.vzla/" target="_blank" className="footer-glass-pill px-10 py-5 rounded-full text-blanco font-posterman uppercase text-sm md:text-base flex items-center gap-3 group">
-                   Instagram
+                <MagneticButton as="a" href="https://www.instagram.com/rds.vzla/" target="_blank" rel="noopener noreferrer" className="footer-glass-pill px-10 py-5 rounded-full text-blanco font-posterman uppercase text-sm md:text-base flex items-center gap-3 group">
+                   <InstagramIcon size={18} />
+                   <span>Instagram</span>
                 </MagneticButton>
               </div>
 
               <div className="flex flex-wrap justify-center gap-3 md:gap-6 w-full mt-2">
-                <MagneticButton as="a" href="https://www.tiktok.com/@rds.vzla" target="_blank" className="footer-glass-pill px-6 py-3 rounded-full text-white/80 font-posterman uppercase text-xs md:text-sm hover:text-white">
-                  TikTok
+                <MagneticButton as="a" href="https://www.tiktok.com/@rds.vzla" target="_blank" rel="noopener noreferrer" className="footer-glass-pill px-6 py-3 rounded-full text-white/80 font-posterman uppercase text-xs md:text-sm hover:text-white flex items-center gap-2">
+                  <TikTokIcon size={16} />
+                  <span>TikTok</span>
                 </MagneticButton>
-                <MagneticButton as="a" href="https://www.facebook.com/profile.php?id=61576604302898" target="_blank" className="footer-glass-pill px-6 py-3 rounded-full text-white/80 font-posterman uppercase text-xs md:text-sm hover:text-white">
-                  Facebook
+                <MagneticButton as="a" href="https://www.facebook.com/profile.php?id=61576604302898" target="_blank" rel="noopener noreferrer" className="footer-glass-pill px-6 py-3 rounded-full text-white/80 font-posterman uppercase text-xs md:text-sm hover:text-white flex items-center gap-2">
+                  <FacebookIcon size={16} />
+                  <span>Facebook</span>
                 </MagneticButton>
                 <MagneticButton as="a" href="#servicios" onClick={(e: any) => handleNav(e, '#servicios')} className="footer-glass-pill px-6 py-3 rounded-full text-white/80 font-posterman uppercase text-xs md:text-sm hover:text-white">
                   Servicios
